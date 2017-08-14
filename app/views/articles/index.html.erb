@@ -1,0 +1,8 @@
+<h1>Liste des articles dispo dans le coin</h1>
+<ul>
+<% @articles.each do |article|%>
+  <li>
+    <%= article.title %>
+  </li>
+  <% end %>
+</ul>
