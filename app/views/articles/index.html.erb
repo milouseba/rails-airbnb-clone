@@ -1,8 +1,7 @@
-<h1>Liste des articles dispo dans le coin</h1>
-<ul>
-<% @articles.each do |article|%>
-  <li>
-    <%= article.title %>
-  </li>
+
+<div class="container">
+  <% @articles.each do |article|%>
+      <h2><%= article.title %></h2>
+      <p><%= article.description %></p>
   <% end %>
-</ul>
+</div>
