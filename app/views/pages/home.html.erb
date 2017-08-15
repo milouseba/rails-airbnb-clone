@@ -2,13 +2,13 @@
   <div class="banner-content">
     <h1>HERBNB</h1>
     <p>Get quality weed. Now.</p>
-    <div class="container">
-  <div class="row">
-    <div class="col-xs-6 col-xs-offset-3">
+    <div class="">
+<!--   <div class="row">
+    <div class="col-xs-6 col-xs-offset-3"> -->
         <%= form_tag("/articles", {method: "get", class: "search-bar"}) do %>
           <%= text_field_tag(:q, '', {class: "search", placeholder: "What's your address..."}) %>
           <%= submit_tag("Get weed", {class: "btn-treehouse"}) %>
         <% end %>
-    </div>
-  </div>
+<!--     </div>
+  </div> -->
 </div>
