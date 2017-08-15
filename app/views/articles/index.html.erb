@@ -5,5 +5,5 @@
       <p><%= article.description %></p>
       <%= link_to "Show article", article_path(article) %>
   <% end %>
-
+  <%= link_to "Add article", new_article_path, class: 'btn btn-success' %>
 </div>
