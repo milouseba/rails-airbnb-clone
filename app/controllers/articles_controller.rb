@@ -29,14 +29,21 @@ class ArticlesController < ApplicationController
 
   def update
     set_article
-    @article.update(article_params)
-    redirect_to article_path(@article)
+    if @article.user == current_user
+      @article.update(article_params)
+      redirect_to article_path(@article)
+    else
+      redirect_to articles_path
+    end
   end
 
   def destroy
     set_article
-    @article.delete
-    redirect_to articles_path
+    if @article.user == current_user
+      @article.delete
+      redirect_to articles_path
+    else redirect_to article_path(@article)
+    end
   end
 
   private

@@ -2,4 +2,13 @@
   <h2><%= @article.title %></h2>
 </div>
 
-<%= link_to 'Delete article', article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+<% if @article.user == current_user %>
+  <%= link_to 'Delete article', article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+<% end %>
+
+<% if @article.user == current_user %>
+  <%= link_to "Edit this article?", edit_article_path(@article), class: 'btn btn-warning' %>
+<% end %>
+
+
+
