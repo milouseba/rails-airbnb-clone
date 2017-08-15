@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    set_articles
+    set_article
   end
 
   def new
@@ -23,8 +23,24 @@ class ArticlesController < ApplicationController
     redirect_to article_path(@article)
   end
 
+  def edit
+    set_article
+  end
+
+  def update
+    set_article
+    @article.update(article_params)
+    redirect_to article_path(@article)
+  end
+
+  def destroy
+    set_article
+    @article.delete
+    redirect_to articles_path
+  end
+
   private
-  def set_articles
+  def set_article
     @article = Article.find(params[:id])
   end
 
