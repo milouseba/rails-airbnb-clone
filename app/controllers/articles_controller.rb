@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    word_search = "weed"
+    word_search = params[:q]
     if word_search.nil?
       @articles = Article.all
     else
