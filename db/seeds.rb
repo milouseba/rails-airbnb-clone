@@ -7,8 +7,22 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+require 'json'
+require 'open-uri'
 
-article = Article.new(title: "super weed", description: "super defonce", address: "16 villa gaudelet 75011 Paris",
-                      price: rand(30..60), user_id: 2)
+puts "Destroying database...."
+User.destroy_all
+puts "Done!"
 
-article.save
+puts "Creating database..."
+100.times do
+  url = 'https://randomuser.me/api/'
+  user_serialized = open(url).read
+  users_list = JSON.parse(user_serialized)
+
+  User.create(email: users_list["results"][0]["email"], url_avatar:
+  users_list["results"][0]["picture"]["large"], password:
+  users_list["results"][0]["login"]["password"])
+end
+puts "Done!"
+

@@ -1,1 +1,12 @@
 <h1>Welcome to Herbnb</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-4">
+      <%= form_tag("/articles", method: "get") do %>
+        <%= label_tag(:q, "Search for weed:") %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Get weed") %>
+      <% end %>
+    </div>
+  </div>
+</div>

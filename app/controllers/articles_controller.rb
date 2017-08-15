@@ -8,3 +8,5 @@ class ArticlesController < ApplicationController
     end
   end
 end
+
+#params[:q]
