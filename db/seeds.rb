@@ -10,7 +10,11 @@
 require 'json'
 require 'open-uri'
 
+Order.destroy_all
+
 puts "Destroying database...."
+Order.destroy_all
+Article.destroy_all
 User.destroy_all
 puts "Done!"
 
