@@ -10,5 +10,12 @@
   <%= link_to "Edit this article?", edit_article_path(@article), class: 'btn btn-warning' %>
 <% end %>
 
+ <div class="form-group">
+  <%= simple_form_for([@article, @order]) do |a| %>
+    <%= a.input :quantity, :collection => (1..10).to_a %>
+    <%= a.button :submit, class: 'btn btn-primary' %>
+  <% end %>
+</div>
 
+<!-- [[1, 1], [2, 2]] -->
 

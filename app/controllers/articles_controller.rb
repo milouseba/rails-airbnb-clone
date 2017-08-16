@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
 
   def show
     set_article
+    @order = Order.new
   end
 
   def new
