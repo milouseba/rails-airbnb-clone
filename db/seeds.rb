@@ -19,7 +19,7 @@ User.destroy_all
 puts "Done!"
 
 puts "Creating users database..."
-100.times do
+10.times do
   url = 'https://randomuser.me/api/'
   user_serialized = open(url).read
   users_list = JSON.parse(user_serialized)
@@ -67,15 +67,18 @@ article_weeds = [
 {title: "NorthernLights", description: "Elle fait partie des variétés de cannabis les plus connues. C’est une pure indica appréciée pour ses têtes résineuses et ses rendements élevés et rapides."},
 {title: "GrapeApe", description: "Nommée d’après ses effluves de raisin, cette indica est connue pour ses effets relaxants qui peuvent aider à apaiser les douleurs, le stress et l’anxiété. Elle stimule également l’appétit, ne vous éloignez donc pas trop de votre frigo."}
 ]
+
 puts "create articles"
 article_weeds.each do |article|
-  Article.create!(
+  art = Article.new(
     address: "#{Faker::Address.city}, #{Faker::Address.street_address}, #{Faker::Address.zip_code}, #{Faker::Address.country}",
     title: article[:title],
     description: article[:description],
     price: (35...60).to_a.sample,
-    user_id: User.all.sample.id,
-    photo: array_url.sample)
+    user_id: User.all.sample.id)
+  art["photo"] = array_url.sample
+  art.save
 end
+
 puts "articles created"
 
