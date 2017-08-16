@@ -77,8 +77,12 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.6.1)
     execjs (2.7.0)
+
+    faker (1.8.4)
+      i18n (~> 0.5)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
+
     ffi (1.9.18)
     figaro (1.1.1)
       thor (~> 0.14)
@@ -244,6 +248,7 @@ DEPENDENCIES
   cloudinary
   coffee-rails
   devise
+  faker
   figaro
   font-awesome-sass
   geocoder
@@ -269,4 +274,4 @@ RUBY VERSION
    ruby 2.3.4p301
 
 BUNDLED WITH
-   1.15.1
+   1.15.3

@@ -19,10 +19,12 @@ gem 'uglifier'
 gem 'devise'
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
+gem 'faker'
 gem "coffee-rails"
 
 gem "geocoder"
 gem "gmaps4rails"
+
 
 group :development, :test do
   gem 'pry-byebug'
