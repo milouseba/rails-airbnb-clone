@@ -1,0 +1,81 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-top: 55px;
+}
+
+$break-small: 720px;
+
+.search {
+
+  @media screen and (max-width: $break-small) {
+    width: 230px;
+    font-size: 14px;
+    padding: 14px;
+  }
+  color: black;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-style: none;
+  padding: 14px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+  font-size: 20px;
+  width: 400px;
+  font-weight: 300;
+  font-size: 16px;
+
+}
+
+.btn-treehouse {
+  color: white;
+  padding: 10px 15px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  font-weight: thinner;
+  background: $super-green;
+  transition: background 0.3s ease;
+  border-style: none;
+  height: 52px;
+  margin: 0px;
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.9);
+}
+.btn-treehouse:hover {
+  opacity: 1;
+  background: #3ac162;
+  text-decoration: none;
+  color: white;
+}
+
+.banner {
+  color: white;
+  text-align: center;
+  height: 400px;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner h1 {
+  font-size: 80px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px red;
+  animation: glow 0.5s infinite alternate;
+}
+
+@keyframes glow {
+     to {
+        text-shadow: 3px 3px green
+    }
+}
+
+.banner p {
+  font-size: 30px;
+  font-weight: lighter;
+  color: white;
+  text-align: 1px 1px rgba(0,0,0,0.1);
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
