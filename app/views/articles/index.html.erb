@@ -1,15 +1,38 @@
 
 <div class="container content_articles">
-  <%= link_to "Add article", new_article_path, class: 'btn btn-success' %>
   <div class="cards">
     <div class="row">
+
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card" id="add" >
+          <div class="icon-wrapper">
+            <i class="fa fa-3x fa-plus-circle" aria-hidden="true" id="add_icon"></i>
+          </div>
+            <%= link_to "", new_article_path, class: 'card-link' %>
+        </div>
+      </div>
       <% @articles.each do |article|%>
           <div class="col-xs-12 col-sm-6 col-md-4">
             <!-- <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/shanghai')"> -->
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%),
          url('<%= cl_image_path article.photo, height: 300, width: 400, crop: :fill %>')">
-              <%= article.title %>
-              <%= link_to "Show article", article_path(article) %>
+              <div class="card-category">
+                <% if article.title.size > 12 %>
+                  <p><%= article.title[0..12] %> . . .</p>
+                <% else %>
+                  <%= article.title %>
+                <% end %>
+
+              </div>
+              <div class="card-description">
+              <% if article.description.size > 12 %>
+                <p><%= article.description[0..55] %> . . .</p>
+              <% else %>
+                <%= article.description %>
+              <% end %>
+              </div>
+              <%= image_tag article.user.url_avatar, class: 'card-user' %>
+              <%= link_to "Show article", article_path(article), class: "card-link" %>
             </div>
           </div>
         <% end %>
