@@ -11,9 +11,11 @@
 <% end %>
 
  <div class="form-group">
+  <% unless @article.user == current_user %>
   <%= simple_form_for([@article, @order]) do |a| %>
     <%= a.input :quantity, :collection => (1..10).to_a %>
     <%= a.button :submit, class: 'btn btn-primary' %>
+  <% end %>
   <% end %>
 </div>
 
