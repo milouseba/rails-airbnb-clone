@@ -23,6 +23,7 @@
       user.update(user_params)
     else
       user = User.new(user_params)
+      # user.url_avatar = "https://api.adorable.io/avatars/#{Random.rand(250)}/"
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.save
     end

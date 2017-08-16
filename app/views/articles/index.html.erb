@@ -31,7 +31,7 @@
                 <%= article.description %>
               <% end %>
               </div>
-              <%= image_tag article.user.url_avatar, class: 'card-user' %>
+              <%= image_tag current_user.url_avatar || "https://api.adorable.io/avatars/#{Random.rand(250)}/", class: 'card-user' %>
               <%= link_to "Show article", article_path(article), class: "card-link" %>
             </div>
           </div>
