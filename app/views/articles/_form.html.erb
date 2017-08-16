@@ -1,13 +1,12 @@
-<div class="col-xs-4 col-xs-offset-4">
   <div class="form-group">
     <%= simple_form_for @article do |a| %>
-      <%= a.input :title %>
-      <%= a.input :description %>
-      <%= a.input :address %>
-      <%= a.input :price %>
-      <%= a.input :photo %>
-      <%= a.input :photo_cache, as: :hidden %>
-      <%= a.submit class: 'btn btn-primary' %>
+        <%= a.input :title, placeholder: 'What is your product' %>
+        <%= a.input :description, placeholder: 'Describe your product' %>
+        <%= a.input :address %>
+        <%= a.input :price %>
+        <%= a.input :photo, label: false %>
+        <%= a.input :photo_cache, as: :hidden %>
+        <%= a.submit class: 'btn btn-success' %>
     <% end %>
   </div>
-</div>
+
