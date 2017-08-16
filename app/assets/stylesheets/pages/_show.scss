@@ -1,0 +1,95 @@
+.article-box {
+  background-color: white;
+  margin-top: 30px;
+  padding: 20px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  border-radius: 4px;
+}
+
+hr {
+  border-color: rgba(0,0,0,0.05)
+}
+
+.inside-card {
+  padding: 0px 20px;
+}
+
+.card-show {
+  height: 120px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  border-radius: 2px;
+  margin-bottom: 20px;
+  margin-right: 5px;
+  margin-left: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 15px;
+}
+
+.card-user-show {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid #c9c9c9;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.card-show-title {
+  font-size: 60px;
+  text-transform: uppercase;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+.card-description-show {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  opacity: 0.8;
+  font-size: 25px;
+  font-weight: 300;
+}
+
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+.card-link:hover {
+  opacity: 0.1;
+}
+
+.drop {
+  margin-top: 20px;
+  width: 100px;
+  font-weight: 300;
+  color: $super-green
+}
+
+h3 {
+  font-weight: 300;
+}
+
+.formassss {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price div {
+  color: $super-green;
+}

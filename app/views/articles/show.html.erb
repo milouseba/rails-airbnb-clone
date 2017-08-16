@@ -1,23 +1,44 @@
 <div class="container">
-  <h2><%= @article.title %></h2>
+  <div class="article-box">
+    <div class="card-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @article.photo, height: 300, width: 400, crop: :fill %>')">
+      <div class="card-show-title"><%= @article.title%></div>
+      <!-- <img class="card-user-show" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
+      <%= image_tag current_user.url_avatar || "https://api.adorable.io/avatars/#{Random.rand(250)}/", class: 'card-user-show' %>
+    </div>
+    <div class="inside-card">
+      <div class="price">
+       <h3>Description</h3>
+       <div><%= @article.price.to_i %> $</div>
+      </div>
+      <hr>
+      <div class="">
+        <%= @article.description %>
+       </div>
+        <hr>
+        <% if @article.user == current_user %>
+          <%= link_to 'Delete article', article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+        <% end %>
+
+        <% if @article.user == current_user %>
+          <%= link_to "Edit this article?", edit_article_path(@article), class: 'btn btn-warning' %>
+        <% end %>
+      <div class="form-group">
+        <% unless @article.user == current_user %>
+        <%= simple_form_for([@article, @order]) do |a| %>
+          <div class="formassss">
+          <div class="drop">
+            <%= a.input :quantity, :collection => (1..10).to_a %>
+          </div>
+          <%= a.button :submit, class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
-<% if @article.user == current_user %>
-  <%= link_to 'Delete article', article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
-<% end %>
 
-<% if @article.user == current_user %>
-  <%= link_to "Edit this article?", edit_article_path(@article), class: 'btn btn-warning' %>
-<% end %>
-
- <div class="form-group">
-  <% unless @article.user == current_user %>
-  <%= simple_form_for([@article, @order]) do |a| %>
-    <%= a.input :quantity, :collection => (1..10).to_a %>
-    <%= a.button :submit, class: 'btn btn-primary' %>
-  <% end %>
-  <% end %>
-</div>
 
 <!-- [[1, 1], [2, 2]] -->
 
