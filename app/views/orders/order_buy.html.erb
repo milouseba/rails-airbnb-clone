@@ -1,0 +1,12 @@
+<h1>Liste de mes achats</h1>
+
+<ul>
+  <% @orders.each do |order| %>
+  <li>
+    <%= order.quantity %>
+    <%= order.article.title %>
+    <%= order.confirmed ? "confirmed" : "pending" %>
+    <%= order.delivered ? "delivered" : "pending" %>
+  </li>
+  <% end %>
+</ul>
