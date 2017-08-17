@@ -9,8 +9,30 @@
 
 require 'json'
 require 'open-uri'
+# require 'csv'
 
-Order.destroy_all
+# csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
+
+
+# # File.join(__dir__, 'AdresseOnze.csv')
+# filepath = File.join(__dir__, 'AdresseOnze.csv')
+# CSV.foreach(filepath, csv_options).each do |row|
+#   puts row['nom_voie']
+# end
+
+
+# csv_text = File.read(Rails.root.join('db', 'seeds', 'AdresseOnze.csv'))
+# csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+# csv.each do |row|
+#   puts row.to_hash
+# end
+
+# puts "#{row['numero']} #{row['nom_voie']}, 75011 Paris"
+
+
+
+
+# Order.destroy_all
 
 puts "Destroying database...."
 Order.destroy_all
@@ -28,8 +50,18 @@ puts "Creating users database..."
   users_list["results"][0]["picture"]["large"], password:
   users_list["results"][0]["login"]["password"])
 end
+url = 'https://randomuser.me/api/'
+user_serialized = open(url).read
+users_list = JSON.parse(user_serialized)
+User.create(email: "sebastien@gmail.com", password: "sebastien", first_name: "sebastien", last_name: "milou",
+            url_avatar: users_list["results"][0]["picture"]["large"])
+User.create(email: "thomas@gmail.com", password: "thomas", first_name: "thomas", last_name: "chekaiban",
+            url_avatar: users_list["results"][0]["picture"]["large"])
+User.create(email: "maxime@gmail.com", password: "maxime", first_name: "maxime", last_name: "guillemain",
+            url_avatar: users_list["results"][0]["picture"]["large"])
+User.create(email: "ariane@gmail.com", password: "ariane", first_name: "ariane", last_name: "decolle",
+            url_avatar: users_list["results"][0]["picture"]["large"])
 puts "Users created"
-
 
 url1 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1502875767/Herbnb/Weed_1.jpg"
 url2 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1502875767/Herbnb/Weed_2.jpg"
@@ -79,6 +111,44 @@ article_weeds.each do |article|
   art["photo"] = array_url.sample
   art.save
 end
+
+# real_user = ["sebastien@gmail.com", "thomas@gmail.com", "ariane@gmail.com", "maxime@gmail.com"]
+# address_user = ["4, Place du Louvre 75001 Paris",
+#                 "8, rue de la Banque, 75002 Paris",
+#                 "2, rue Eugène Spuller, 75003 Paris",
+#                 "",
+#                 "",
+#                 "",
+#                 "",
+#                 "",
+#                 "",
+#                 "",
+#                 "",
+#                 "",
+#                 "",
+#                 "",
+#                 "",
+#                 "",
+#                 "",
+#                 "",
+#                 "",
+#                 "",
+#                 "",
+#                 "",
+#                 "",
+#               ]
+# real_user.each do |realuser|
+#   article_weeds.each do |article|
+#     art = Article.new(
+#       address: "100 rue de clery 75002 Paris",
+#       title: article[:title],
+#       description: article[:description],
+#       price: (35...60).to_a.sample,
+#       user_id: User.find_by_email(realuser).id)
+#     art["photo"] = array_url.sample
+#     art.save
+#   end
+# end
 
 puts "articles created"
 
