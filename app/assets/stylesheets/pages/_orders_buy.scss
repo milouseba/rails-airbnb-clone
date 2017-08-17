@@ -1,0 +1,27 @@
+.orders-details {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $light-gray;
+    padding: 29px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.orders-content {
+    background: white;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.orders-header {
+    margin-top: 30px;
+}
+
+.fa-check-circle:before {
+    color: $super-green;
+}

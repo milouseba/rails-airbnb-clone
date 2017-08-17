@@ -2,7 +2,10 @@
     <%= simple_form_for @article do |a| %>
         <%= a.input :title, placeholder: 'What is your product' %>
         <%= a.input :description, placeholder: 'Describe your product' %>
-        <%= a.input :address %>
+        <div class="form-group string optional article_description">
+          <label class="control-label string optional" for="article_description">Address</label>
+            <%= text_field_tag(:address, '', { id:"autocomplete", onFocus: "geolocate()", placeholder: "Enter your address...", class: "form-control string optional"}) %>
+        </div>
         <%= a.input :price %>
         <%= a.input :photo, label: false %>
         <%= a.input :photo_cache, as: :hidden %>
