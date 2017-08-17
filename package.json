@@ -1,5 +1,7 @@
 {
   "name": "rails-airbnb-clone",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "hover.css": "^2.2.0"
+  }
 }
