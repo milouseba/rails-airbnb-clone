@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :articles do
-    resources :orders, only: [:create]
+    resources :orders, only: [:create, :index]
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
 end
