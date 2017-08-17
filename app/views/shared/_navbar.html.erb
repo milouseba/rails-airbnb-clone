@@ -13,10 +13,10 @@
 
       <!-- Links when logged in -->
       <div class="orders_link">
-        <%= link_to "Orders", orders_sell_path %>
+        <%= link_to "Orders", orders_sell_path, class: "navbar-wagon-item navbar-wagon-link" %>
       </div>
-      <%= link_to destroy_user_session_path, method: :delete do %>
-          <%= t(".sign_out", default: "Log out", class: "logout") %>
+      <%= link_to destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" do %>
+          <%= t(".sign_out", default: "Log out") %>
       <% end %>
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
