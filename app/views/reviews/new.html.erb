@@ -1,0 +1,16 @@
+<div class="article-form">
+  <div class="form-group">
+    <div class="container text-center">
+      <div class="form-content">
+      <h1 class="form-header">Add review</h1>
+        <%= simple_form_for [@order, @review] do |r| %>
+          <%= r.error_notification %>
+          <%= r.input :description, placeholder: 'Describe order', required: true %>
+          <%= r.input :rating, collection: 1..5, required: true %>
+          <%= r.submit class: 'btn btn-success' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

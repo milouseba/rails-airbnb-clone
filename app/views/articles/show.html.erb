@@ -36,9 +36,25 @@
       </div>
     </div>
   </div>
+  <div class="reviews">
+    <h3 id="reviews-header">Browse Reviews</h3>
+    <% if @article.reviews.first.nil? %>
+      <%= "No reviews yet" %>
+    <% else %>
+      <ul>
+        <% @article.reviews.each do |review| %>
+          <div class="list-inline reviews-content">
+            <p class="rating"><% review.rating.times do %>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              <% end %>
+            </p>
+            <li><%= review.description.capitalize %></li>
+          </div>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 </div>
-
-
 
 <!-- [[1, 1], [2, 2]] -->
 

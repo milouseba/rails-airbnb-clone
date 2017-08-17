@@ -7,6 +7,11 @@
     <%= order.article.title %>
     <%= order.confirmed ? "confirmed" : "pending" %>
     <%= order.delivered ? "delivered" : "pending" %>
+    <% if order.reviews.first.nil? %>
+      <%= link_to "Review this order", new_order_review_path(order, @review), class: 'btn btn-warning' %>
+    <% else %>
+      <%= "Already reviewed" %>
+    <% end %>
   </li>
   <% end %>
 </ul>
