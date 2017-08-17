@@ -5,8 +5,8 @@
   <li>
     <%= order.quantity %>
     <%= order.article.title %>
-    <%= order.confirmed ? "confirmed" : "pending" %>
-    <%= order.delivered ? "delivered" : "pending" %>
+    <%= order.confirmed %>
+    <%= order.delivered %>
     <% if order.reviews.first.nil? %>
       <%= link_to "Review this order", new_order_review_path(order, @review), class: 'btn btn-warning' %>
     <% else %>

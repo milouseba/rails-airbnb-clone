@@ -8,8 +8,17 @@ Rails.application.routes.draw do
   end
 
   get "/orderssell", to: "orders#order_sell", as: "orders_sell"
+
+  patch "/orderssell/:id", to: "orders#order_sell_confirmed" #, as: "orders_sell"
+
   get "/ordersbuy", to: "orders#order_buy", as: "orders_buy"
+
+
+  resources :orders, only: [:orders_sell_confirmed]
+
+
   resources :orders do
     resources :reviews, only: [ :new, :create ]
   end
+
 end
