@@ -5,8 +5,9 @@
   <li>
     <%= order.quantity %>
     <%= order.article.title %>
-    <%= order.confirmed ? "confirmed" : "pending" %>
-    <%= order.delivered ? "delivered" : "pending" %>
+    <%= order.confirmed %>
+    <%= order.delivered %>
+    <%= link_to "Confirmed", orders_sell_confirmed_path(order), method: :patch %>
   </li>
   <% end %>
 </ul>

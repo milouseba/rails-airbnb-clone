@@ -6,6 +6,11 @@ class ArticlesController < ApplicationController
     else
       @articles = Article.where("title LIKE ?", "%#{word_search}%")
     end
+    @hash = Gmaps4rails.build_markers(@articles) do |article, marker|
+      marker.lat article.latitude
+      marker.lng article.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 
   def show
