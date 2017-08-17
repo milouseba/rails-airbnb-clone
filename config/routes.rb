@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get "/orderssell", to: "orders#order_sell", as: "orders_sell"
 
-  patch "/orderssell/:id", to: "orders#order_sell_confirmed" #, as: "orders_sell"
+  patch "/orderssell/:id", to: "orders#orders_sell_confirmed" , as: "orders_sell_confirmed"
 
   get "/ordersbuy", to: "orders#order_buy", as: "orders_buy"
 

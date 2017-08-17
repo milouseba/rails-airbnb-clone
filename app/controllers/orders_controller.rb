@@ -21,14 +21,29 @@ class OrdersController < ApplicationController
   end
 
   def orders_sell_confirmed
-    raise
-    @order = Order.find([params[:id]])
-    @order.confirmed = "confirmed"
+    # raise
+    @order = Order.find(params[:id])
+    if @order.confirmed = "confirmed"
+      @order.delivered = "delivered"
+    else
+      @order.confirmed = "confirmed"
+    end
     @order.save
     @articles = Article.where(user_id: current_user.id)
     @orders = @articles.map { |article| Order.where(article: article.id) }
     @orders = @orders.flatten
-    redirect_to order_sell_path
+    redirect_to orders_sell_path
+  end
+
+  def orders_sell_cancel
+    @order = Order.find(params[:id])
+    @order.delivered = "cancel"
+    @order.confirmed = "cancel"
+    @order.save
+    @articles = Article.where(user_id: current_user.id)
+    @orders = @articles.map { |article| Order.where(article: article.id) }
+    @orders = @orders.flatten
+    redirect_to orders_sell_path
   end
 
   private
