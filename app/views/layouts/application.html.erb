@@ -12,19 +12,23 @@
     <%= render 'shared/flashes' %>
     <%= render 'shared/navbar' %>
     <%= yield %>
+
     <%= javascript_include_tag 'application' %>
   </body>
+
+  <footer>
     <div class="footer">
-    <div class="footer-logo">
-      <img src="/assets/logo-herbnb-89177e020590af1a9ea96acd083ed5920b86317c4316bb517628b0ae25d70e7a.png" alt="Logo herbnb">
-    </div>
-    <div class="footer-links">
-      <ul class="list-unstyled">
-      <div class="links-container">
-          <li><a class="link1" target="_blank" href="https://www.cannaweed.com/">About Weed </a></li>
-          <li><a class="link2" target="_blank" href="https://www.youtube.com/watch?v=BUxQeY2xmH0&list=PLnPDn1Lb79JGoFey4EPwAvxW4tbyzbz0p">!Have fun!</a></li>
+      <div class="footer-logo">
+        <img src="/assets/logo-herbnb-89177e020590af1a9ea96acd083ed5920b86317c4316bb517628b0ae25d70e7a.png" alt="Logo herbnb">
+      </div>
+      <div class="footer-links">
+        <ul class="list-unstyled">
+          <div class="links-container">
+            <li><a class="link1" target="_blank" href="https://www.cannaweed.com/">About Weed </a></li>
+            <li><a class="link2" target="_blank" href="https://www.youtube.com/watch?v=BUxQeY2xmH0&list=PLnPDn1Lb79JGoFey4EPwAvxW4tbyzbz0p">!Have fun!</a></li>
+          </div>
         </ul>
       </div>
     </div>
-  </div>
+  </footer>
 </html>
