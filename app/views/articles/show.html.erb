@@ -29,13 +29,14 @@
           <div class="drop">
             <%= a.input :quantity, :collection => (1..10).to_a %>
           </div>
-          <%= a.button :submit, class: 'btn btn-primary' %>
+          <%= a.button :submit, class: 'btn btn-success' %>
           </div>
         <% end %>
         <% end %>
       </div>
     </div>
   </div>
+
   <div class="reviews">
     <h3 id="reviews-header">Browse Reviews</h3>
     <% if @article.reviews.first.nil? %>
@@ -44,6 +45,7 @@
       <ul>
         <% @article.reviews.each do |review| %>
           <div class="list-inline reviews-content">
+            <p><%= review.order.user.first_name %></p>
             <p class="rating"><% review.rating.times do %>
                 <i class="fa fa-star" aria-hidden="true"></i>
               <% end %>

@@ -1,17 +1,36 @@
-<h1>Liste de mes achats</h1>
+<div class="container text-center">
+  <div class="orders-header">
+    <h1>Liste de mes achats</h1>
+  </div>
+</div>
 
-<ul>
-  <% @orders.each do |order| %>
-  <li>
-    <%= order.quantity %>
-    <%= order.article.title %>
-    <%= order.confirmed ? "confirmed" : "pending" %>
-    <%= order.delivered ? "delivered" : "pending" %>
-    <% if order.reviews.first.nil? %>
-      <%= link_to "Review this order", new_order_review_path(order, @review), class: 'btn btn-warning' %>
-    <% else %>
-      <%= "Already reviewed" %>
-    <% end %>
-  </li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="orders-content">
+    <ul>
+      <% @orders.each do |order| %>
+        <li class="list-inline">
+        <div class="orders-details">
+          <div class="order-infos">
+            <%= order.quantity %>
+            <%= order.article.title %>
+            <% if order.confirmed == false %>
+              <%= "pending" %>
+            <% else %>
+              <%= "accepted" %>
+            <% end %>
+          </div>
+          <div class="order-review">
+            <% if order.reviews.first.nil? %>
+              <%= link_to "Review this order", new_order_review_path(order, @review), class: 'btn btn-warning' %>
+            <% else %>
+              <%= "Already reviewed" %> <i class="fa fa-check-circle" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+
