@@ -1,16 +1,28 @@
-
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://www.sundaynews.co.zw/wp-content/uploads/2017/07/weed.jpg');">
   <div class="banner-content">
     <h1>HERBNB</h1>
     <p>Get quality weed. Now.</p>
     <div class="">
 <!--   <div class="row">
-    <div class="col-xs-6 col-xs-offset-3"> -->
-        <%= form_tag("/articles", {method: "get", class: "search-bar"}) do %>
-          <%= text_field_tag(:q, '', {class: "search", placeholder: "Enter your address..."}) %>
-          <%= submit_tag("Get weed", {class: "btn-treehouse"}) %>
-        <% end %>
-<!--     </div>
-  </div> -->
+  <div class="col-xs-6 col-xs-offset-3"> -->
+    <%= form_tag("/articles", {method: "get", class: "search-bar"}) do %>
+    <%= text_field_tag(:q, '', {class: "search", placeholder: "Enter your address..."}) %>
+    <%= submit_tag("Get weed", {class: "btn-treehouse"}) %>
+    <% end %>
+  </div>
+</div>
 </div>
 
+  <div class="footer">
+    <div class="footer-logo">
+      <img src="/assets/logo-herbnb-89177e020590af1a9ea96acd083ed5920b86317c4316bb517628b0ae25d70e7a.png" alt="Logo herbnb">
+    </div>
+    <div class="footer-links">
+      <ul class="list-unstyled">
+      <div class="links-container">
+          <li><a class="link1" target="_blank" href="https://www.cannaweed.com/">About Weed </a></li>
+          <li><a class="link2" target="_blank" href="https://www.youtube.com/watch?v=BUxQeY2xmH0&list=PLnPDn1Lb79JGoFey4EPwAvxW4tbyzbz0p">!Have fun!</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
