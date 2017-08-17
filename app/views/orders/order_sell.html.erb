@@ -1,12 +1,12 @@
-<h1>Liste de mes achats</h1>
+<h1>Liste de mes ventes</h1>
 
 <ul>
   <% @orders.each do |order| %>
   <li>
     <%= order.quantity %>
+    <%= order.article.title %>
     <%= order.confirmed ? "confirmed" : "pending" %>
     <%= order.delivered ? "delivered" : "pending" %>
-    <%= @article.title %>
   </li>
   <% end %>
 </ul>

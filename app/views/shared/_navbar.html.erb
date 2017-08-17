@@ -12,10 +12,12 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+      <div class="orders_link">
+        <%= link_to "Orders", orders_sell_path %>
+      </div>
       <%= link_to destroy_user_session_path, method: :delete do %>
           <%= t(".sign_out", default: "Log out", class: "logout") %>
       <% end %>
-
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
