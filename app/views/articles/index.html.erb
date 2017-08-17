@@ -2,41 +2,40 @@
 <div class="container content_articles">
   <div class="cards">
     <div class="row">
-
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="card" id="add" >
-          <div class="icon-wrapper">
-            <i class="fa fa-3x fa-plus-circle" aria-hidden="true" id="add_icon"></i>
+      <div class="col-xs-12" id="da-search">
+        <div class="search_plus_add">
+          <input id="filter_box" type="text" class="form-control" placeholder="Filter. . .">
+          <div class="btn btn-success" id="add_button">
+            <%= link_to "Sell $", new_article_path() %>
           </div>
-            <%= link_to "", new_article_path, class: 'card-link' %>
         </div>
+        </br>
+        <p> *Prices / pouch</p>
       </div>
+
       <% @articles.each do |article|%>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <!-- <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/shanghai')"> -->
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <!-- <div class="card" style="background-image: url('https://kitt.lewagon.com/placeholder/cities/shanghai')"> -->
           <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%),
          url('<%= cl_image_path article.photo, height: 300, width: 400, crop: :fill %>')">
               <div class="card-category">
                 <% if article.title.size > 12 %>
-                  <p><%= article.title[0..12] %> . . .</p>
+                  <p><%= article.title[0..9] %> . . .</p>
                 <% else %>
-                  <%= article.title %>
+                  <p id="the-drug"><%= article.title %></p>
                 <% end %>
+              </div>
+              <div class="card-price">
+              <h1><%= article.price.to_i %>$</h1>
+              </div>
 
-              </div>
-              <div class="card-description">
-              <% if article.description.size > 12 %>
-                <p><%= article.description[0..55] %> . . .</p>
-              <% else %>
-                <%= article.description %>
-              <% end %>
-              </div>
               <%= image_tag current_user.url_avatar || "https://api.adorable.io/avatars/#{Random.rand(250)}/", class: 'card-user' %>
-              <%= link_to "", article_path(article), class: "card-link" %>
-            </div>
+
+              <%= link_to "#{article.description[0..54]} . . .", article_path(article), class: "card-link" %>
           </div>
+        </div>
         <% end %>
-      </div>
+    </div>
   </div>
 
   <div class="map-content">
@@ -91,4 +90,18 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 <!-- Gmaps JavaScript -->
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAP_KEY"]%>&callback=initMap">
-  </script>
+</script>
+
+<script>
+  const htmlStart = document.querySelector('.cards');
+  document.getElementById('filter_box').addEventListener('keyup', (event) => {
+    htmlStart.querySelectorAll('.card').forEach(card => {
+      if (card.querySelector('.card-category > p').innerText.toUpperCase().indexOf(event.target.value.toUpperCase()) > -1) {
+        card.hidden = false;
+      }
+      else {
+        card.hidden = true;
+      }
+    });
+  });
+</script>
