@@ -1,35 +1,62 @@
-<div class="container text-center">
-  <div class="orders-header">
-    <h1>List of buyings</h1>
-  </div>
-</div>
-
 <div class="container">
-  <div class="orders-content">
-    <ul>
+  </br>
+  <h1 class="my-orders">My Orders</h1>
+
+    <ul class="the-big-orders-container">
       <% @orders.each do |order| %>
-        <li class="list-inline">
-        <div class="orders-details">
-          <div class="order-infos">
-            <%= order.quantity %>
-            <%= order.article.title %>
-            <% if order.confirmed == false %>
-              <%= "pending" %>
-            <% else %>
-              <%= "accepted" %>
-            <% end %>
+        <li class="orders-content">
+
+          <div class="card-show-orders" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path order.article.photo, height: 300, width: 400, crop: :fill %>')">
+            <div class="card-show-title-orders"><%= order.article.title%>
+            </div>
+            <!-- <img class="card-user-show" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
+            <div class="name_and_photo_for_order_seller">
+              <h4>Seller</h4>
+              <div class="name_and_photo_for_order">
+                <%= image_tag current_user.url_avatar || "https://api.adorable.io/avatars/#{Random.rand(250)}/", class: 'card-user-orders' %>
+                <%= order.article.user.first_name %>
+              </div>
+            </div>
           </div>
-          <div class="order-review">
-            <% if order.reviews.first.nil? %>
-              <%= link_to "Review this order", new_order_review_path(order, @review), class: 'btn btn-warning' %>
-            <% else %>
-              <%= "Already reviewed" %> <i class="fa fa-check-circle" aria-hidden="true"></i>
-            <% end %>
+
+          <div class="orders-details">
+            <div id="checkout-form">
+              <div class="checkout-contain">
+                <div class="container-checkout">
+                  <div class="price-per-pouch">
+                    <p>Price / pouch:</p>
+                    <p class="leprix">$ <%= order.article.price.to_i %></p>
+                  </div>
+                  <div class="quantity-to-buy">
+                    <p>Nº of pouches:</p>
+                    <p id="order_quantity"> <%= order.quantity %></p>
+                  </div>
+                  <div class="total-price-to-pay">
+                    <p class="grand-total">Total:</p>
+                    <div class="price-and-dollar">
+                      <p>$</p>
+                      <p class="total_price"><%= order.article.price.to_i * order.quantity%></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
           </div>
-        </div>
-      </li>
+            <div class="order-infos">
+              <%= order.quantity %>
+              <%= order.article.title %>
+              <%= order.confirmed %>
+            </div>
+            <div class="order-review">
+              <% if order.reviews.first.nil? %>
+                <%= link_to "Review this order", new_order_review_path(order, @review), class: 'btn btn-warning' %>
+              <% else %>
+                <%= "Already reviewed" %> <i class="fa fa-check-circle" aria-hidden="true"></i>
+              <% end %>
+            </div>
+          </div>
+        </li>
       <% end %>
+
     </ul>
-  </div>
 </div>
 
