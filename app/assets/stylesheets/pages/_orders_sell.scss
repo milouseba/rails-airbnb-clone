@@ -1,0 +1,70 @@
+.my-sales {
+  color: $super-green;
+  font-weight: 300;
+  padding: 20px;
+  margin-top: 20px;
+  opacity: 0.8;
+}
+
+.main-sales-container {
+  padding-left: 0px;
+  list-style:none;
+}
+
+.card-show-sales {
+  height: 90px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  border-radius: 2px;
+  margin-bottom: 20px;
+  margin-right: 5px;
+  margin-left: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 15px;
+}
+
+.card-show-title-sales {
+  font-size: 30px;
+  text-transform: uppercase;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.7);
+  border: 1px solid rgba(0,173,49,0.6);
+  padding: 0px 15px;
+  border-radius: 5px;
+}
+
+.card-user-sales {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #c9c9c9;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.photo-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.photo-name-sales {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0,0,0,0.8);
+  padding: 7px;
+  border-radius: 4px;
+}
+
+.photo-name h4 {
+  color: orange;
+  text-shadow: 1px 1px rgba (0,0,0,0.7);
+  padding-right: 15px;
+  font-style: italic;
+  font-size: 30px;
+}

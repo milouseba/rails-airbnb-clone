@@ -1,30 +1,37 @@
-<div class="container text-center">
-  <div class="orders-header">
-    <h1>List of sales</h1>
-  </div>
+<div class="container">
+</br>
+  <h1 class="my-sales">My sales</h1>
+    <ul class="main-sales-container">
+      <% @orders.each do |order| %>
+        <li class="orders-content">
+          <div class="card-show-sales" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path order.article.photo, height: 300, width: 400, crop: :fill %>')">
+            <div class="card-show-title-sales"><%= order.article.title%>
+            </div>
+        <!-- <img class="card-user-show" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
+            <div class="photo-name">
+              <h4>Buyer </h4>
+              <div class="photo-name-sales">
+                <%= image_tag current_user.url_avatar || "https://api.adorable.io/avatars/#{Random.rand(250)}/", class: 'card-user-sales' %>
+                <%= order.user.first_name %>
+              </div>
+            </div>
+          </div>
+          <div class="orders-details">
+            <div class="order-infos">
+              <%= order.quantity %>
+              <%= order.article.title %> to <%= order.user.first_name.capitalize %>
+              <%= order.confirmed %>
+              <%= order.delivered %>
+              <% if order.delivered == "pending" %>
+                <%= link_to "Confirm", orders_sell_confirmed_path(order.id), method: :patch %>
+              <% end %>
+              <% if order.confirmed == "pending" %>
+                <%= link_to "Cancel", orders_sell_cancel_path(order.id), method: :put %>
+              <% end %>
+            </div>
+          </div>
+      <% end %>
+    </li>
+  </ul>
 </div>
 
-<div class="container">
-  <div class="orders-content">
-    <ul>
-      <% @orders.each do |order| %>
-      <li class="list-inline">
-        <div class="orders-details">
-          <div class="order-infos">
-            <%= order.quantity %>
-            <%= order.article.title %> to <%= order.user.first_name.capitalize %>
-            <%= order.confirmed %>
-            <%= order.delivered %>
-            <% if order.delivered == "pending" %>
-              <%= link_to "Confirmed", orders_sell_confirmed_path(order.id), method: :patch %>
-            <% end %>
-            <% if order.confirmed == "pending" %>
-              <%= link_to "Cancel", orders_sell_cancel_path(order.id), method: :put %>
-            <% end %>
-          </div>
-        </div>
-      </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
