@@ -11,7 +11,7 @@
             <div class="photo-name">
               <h4>Buyer </h4>
               <div class="photo-name-sales">
-                <%= image_tag current_user.url_avatar || "https://api.adorable.io/avatars/#{Random.rand(250)}/", class: 'card-user-sales' %>
+                <%= image_tag order.user.url_avatar || "https://api.adorable.io/avatars/#{Random.rand(250)}/", class: 'card-user-sales' %>
                 <%= order.user.first_name %>
               </div>
             </div>
