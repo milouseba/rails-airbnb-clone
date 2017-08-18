@@ -4,7 +4,7 @@
       <div class="card-show-title"><%= @article.title%>
       </div>
       <!-- <img class="card-user-show" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
-      <%= image_tag current_user.url_avatar || "https://api.adorable.io/avatars/#{Random.rand(250)}/", class: 'card-user-show' %>
+      <%= image_tag @article.user.url_avatar || "https://api.adorable.io/avatars/#{Random.rand(250)}/", class: 'card-user-show' %>
     </div>
     <div class="inside-card">
       <div class="row">
