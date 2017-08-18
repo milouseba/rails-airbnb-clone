@@ -6,7 +6,8 @@
     background: $light-gray;
     padding: 29px;
     border-radius: 4px;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    border-color: 1px solid rgba(0,0,0,0.4)
 }
 
 .orders-content {
@@ -16,6 +17,8 @@
     padding: 20px;
     margin-bottom: 30px;
     margin-top: 30px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    border-color: 1px solid rgba(0,0,0,0.4)
 }
 
 .orders-header {
@@ -24,4 +27,77 @@
 
 .fa-check-circle:before {
     color: $super-green;
+}
+
+.my-orders {
+  color: $super-green;
+  opacity: 0.8;
+  font-weight: 300;
+  padding: 20px;
+  margin: 20px;
+}
+
+.the-big-orders-container {
+  list-style: none;
+  padding-left: 0px;
+
+}
+
+.card-show-orders {
+  height: 90px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  border-radius: 2px;
+  margin-bottom: 20px;
+  margin-right: 5px;
+  margin-left: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 15px;
+}
+
+.card-show-title-orders {
+  font-size: 30px;
+  text-transform: uppercase;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.7);
+  border: 1px solid rgba(0,173,49,0.6);
+  padding: 0px 15px;
+  border-radius: 5px;
+}
+
+.card-user-orders {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #c9c9c9;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.name_and_photo_for_order {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0,0,0,0.8);
+  border-radius: 4px;
+  padding: 7px;
+  width: 150px;
+}
+
+.name_and_photo_for_order_seller {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name_and_photo_for_order_seller h4 {
+  color: orange;
+  text-shadow: 1px 1px rgba(0,0,0,0.7);
+  font-style: italic;
+  padding-right: 15px;
+  font-size: 30px
 }
