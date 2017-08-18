@@ -1,20 +1,20 @@
 .form-content {
-    // width: 400px;
-    // margin: auto;
-    // border: 2px solid $green;
-    // padding-bottom: 30px;
-    // padding-right: 30px;
-    // padding-left: 30px;
-    // padding-top: 0px;
-    // margin-top: 50px;
-    // margin-bottom: 50px;
-    // box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.42);
-    // border-radius: 4px;
+  width: 400px;
+  margin: auto;
+  border: 2px solid $green;
+  padding-bottom: 30px;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-top: 0px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.42);
+  border-radius: 4px;
 
-    & input#article_photo {
-      font-weight: 100;
-      font-size: 12px;
-    }
+  & input#article_photo {
+    font-weight: 100;
+    font-size: 12px;
+  }
 }
 
 .form-content label {
@@ -23,68 +23,6 @@
 
 h1.form-header {
   margin-bottom: 38px;
-  color: white;
-  font-family: $body-font;
-  font-size: 30px;
 }
-
-
-.article-form {
-background-image: url(http://res.cloudinary.com/dd6ibmn7p/image/upload/v1502962882/Weed_18_tjvrg2.jpg);
-background-repeat: none;
-background-size: cover;
-background-attachment: fixed;
-background-position: center;
-height: 100vh;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
--webkit-filter: blur(0) saturate(1) contrast(1.2) invert(0) sepia(0.08) grayscale(0.16) brightness(0.7);
-filter: blur(0) saturate(1) contrast(1.2) invert(0) sepia(0.08) grayscale(0.16) brightness(1);
-z-index: -1
-}
-
-.form-container {
-  position: relative;
-  margin: 0 auto;
-  padding: 30px;
-  top: 60px;
-  width: 343px;
-  height: auto;
-  filter: blur(5);
-  border: 10px solid rgba(255,255,255,.15);
-  border-radius: 10px;
-  box-shadow: 1px 1px 4px rgba(0,0,0,.3);
-  z-index: 5
-}
-
-// .form-group {
-//   color: #377c38;
-// }
-
-.input {
-  background-color: transparent;
-  outline: none;
-}
-
-.btn btn-success {
-  border-radius: 3px;
-  margin: 2px;
-}
-
-// .form-control {
-//   background-color: rgba(255,255,255,0.3);
-//   color: white;
-//   outline-color: none;
-// }
-
-.form-content2 {
-  background-color: #393E46;
-  opacity: 0.8;
-  border-radius: 6px;
-  padding: 10px;
-}
-
-
 
 
