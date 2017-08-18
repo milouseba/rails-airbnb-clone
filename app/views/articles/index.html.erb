@@ -47,7 +47,6 @@
             markers = handler.addMarkers(<%= raw @hash.to_json %>);
             handler.bounds.extendWith(markers);
             handler.fitMapToBounds();
-            handler.icon() = "e";
             // if (markers.length == 0) {
             //   handler.getMap().setZoom(14);
             // } else if (markers.length == 1) {
@@ -61,7 +60,7 @@
             // console.log((<%= raw @position_depart.to_json %>)["lat"]);
             if ((<%= raw @position_depart.to_json %>)["lat"] === null){
               infoWindow = handler.getMap().InfoWindow;
-
+              // console.log('hello');
               if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
                   var pos = {
