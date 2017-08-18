@@ -102,7 +102,7 @@ article_weeds = [
 {title: "GrapeApe", description: "Nommée d’après ses effluves de raisin, cette indica est connue pour ses effets relaxants qui peuvent aider à apaiser les douleurs, le stress et l’anxiété. Elle stimule également l’appétit, ne vous éloignez donc pas trop de votre frigo."}
 ]
 
-puts "create articles"
+puts "Create articles..."
 article_weeds.each do |article|
   art = Article.new(
     address: address_onze.sample,
@@ -129,5 +129,125 @@ real_user = ["sebastien@gmail.com", "thomas@gmail.com", "ariane@gmail.com", "max
   end
 end
 
-puts "articles created"
+puts "Articles created"
+
+puts "Create orders..."
+
+seb = User.find_by_email("sebastien@gmail.com").id
+tom = User.find_by_email("thomas@gmail.com").id
+max = User.find_by_email("maxime@gmail.com").id
+ari = User.find_by_email("ariane@gmail.com").id
+
+artseb = Article.where(user_id: seb)
+arttom = Article.where(user_id: tom)
+artmax = Article.where(user_id: max)
+artari = Article.where(user_id: ari)
+
+
+2.times do
+Order.create(
+  quantity: (1...10).to_a.sample,
+  confirmed: "pending",
+  delivered: "pending",
+  user_id: seb,
+  article_id: arttom.sample.id)
+end
+2.times do
+Order.create(
+  quantity: (1...10).to_a.sample,
+  confirmed: "pending",
+  delivered: "pending",
+  user_id: tom,
+  article_id: artseb.sample.id)
+end
+
+2.times do
+Order.create(
+  quantity: (1...10).to_a.sample,
+  confirmed: "pending",
+  delivered: "pending",
+  user_id: max,
+  article_id: arttom.sample.id)
+end
+2.times do
+Order.create(
+  quantity: (1...10).to_a.sample,
+  confirmed: "pending",
+  delivered: "pending",
+  user_id: tom,
+  article_id: artmax.sample.id)
+end
+
+2.times do
+Order.create(
+  quantity: (1...10).to_a.sample,
+  confirmed: "pending",
+  delivered: "pending",
+  user_id: ari,
+  article_id: arttom.sample.id)
+end
+2.times do
+Order.create(
+  quantity: (1...10).to_a.sample,
+  confirmed: "pending",
+  delivered: "pending",
+  user_id: tom,
+  article_id: artari.sample.id)
+end
+
+2.times do
+Order.create(
+  quantity: (1...10).to_a.sample,
+  confirmed: "pending",
+  delivered: "pending",
+  user_id: ari,
+  article_id: artmax.sample.id)
+end
+2.times do
+Order.create(
+  quantity: (1...10).to_a.sample,
+  confirmed: "pending",
+  delivered: "pending",
+  user_id: max,
+  article_id: artari.sample.id)
+end
+
+2.times do
+Order.create(
+  quantity: (1...10).to_a.sample,
+  confirmed: "pending",
+  delivered: "pending",
+  user_id: ari,
+  article_id: artseb.sample.id)
+end
+2.times do
+Order.create(
+  quantity: (1...10).to_a.sample,
+  confirmed: "pending",
+  delivered: "pending",
+  user_id: seb,
+  article_id: artari.sample.id)
+end
+
+2.times do
+Order.create(
+  quantity: (1...10).to_a.sample,
+  confirmed: "pending",
+  delivered: "pending",
+  user_id: max,
+  article_id: artseb.sample.id)
+end
+2.times do
+Order.create(
+  quantity: (1...10).to_a.sample,
+  confirmed: "pending",
+  delivered: "pending",
+  user_id: seb,
+  article_id: artmax.sample.id)
+end
+puts "Orders created"
+
+
+
+
 

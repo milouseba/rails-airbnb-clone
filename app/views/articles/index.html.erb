@@ -117,15 +117,48 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 
 <script>
-  const htmlStart = document.querySelector('.cards');
+
+let htmlArray =[];
+  document.querySelectorAll('.card').forEach(card => {
+      let htmlStart = {};
+      htmlStart["style"] = card.style.backgroundImage.replace(/["|']/g, "");
+      htmlStart["titre"] = card.querySelector(".card-category").innerText;
+      htmlStart["price"] = card.querySelector(".card-price").innerText;
+      htmlStart["avatar"] = card.querySelector(".card-user").src;
+      htmlStart["link"] = card.querySelector(".card-link").href;
+      htmlStart["description"] = card.querySelector(".card-link").innerText;
+      htmlArray.push(htmlStart);
+  });
+  console.log(htmlArray);
   document.getElementById('filter_box').addEventListener('keyup', (event) => {
-    htmlStart.querySelectorAll('.card').forEach(card => {
-      if (card.querySelector('.card-category > p').innerText.toUpperCase().indexOf(event.target.value.toUpperCase()) > -1) {
-        card.hidden = false;
-      }
-      else {
-        card.hidden = true;
-      }
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.remove();
+    });
+    htmlArray.forEach(card => {
+      // console.log(card.innerText.split(' ')[0]);
+
+      if (card["titre"].indexOf(event.target.value.toUpperCase()) > -1)
+        {
+      let item =  `<div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="card" style="background-image: ${card["style"]}">
+              <div class="card-category">
+                  <p id="the-drug">${card["titre"]}</p>
+              </div>
+              <div class="card-price">
+              <h1>${card["price"]}</h1>
+              </div>
+
+              <img class="card-user" src="https://randomuser.me/api/portraits/women/45.jpg" alt="45">
+
+              <a class="card-link" href="${card["link"]}">${card["description"]}</a>
+          </div>
+        </div>`
+
+
+      document.getElementById("da-search").insertAdjacentHTML('afterend', item);
+
+    }
     });
   });
 </script>
