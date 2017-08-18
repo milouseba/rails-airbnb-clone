@@ -44,6 +44,10 @@ hr {
   font-size: 60px;
   text-transform: uppercase;
   box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.7);
+  border: 1px solid rgba(0,173,49,0.6);
+  padding: 0px 15px;
+  border-radius: 5px;
 }
 .card-description-show {
   position: absolute;
@@ -118,11 +122,158 @@ h3#reviews-header {
 }
 
 p.rating {
-    margin-bottom: auto;
+  margin-bottom: auto;
 }
 
 .fa-star:before {
-    color: $yellow;
+  color: orange;
+}
+
+.description-show {
+  border-right: 1px solid rgba(0,0,0,0.2);
+  margin-right: -10px;
+}
+
+.description-show h3 {
+  color: $super-green;
+  font-weight: 300;
+}
+
+.description-show p {
+  color: rgba(0,0,0,0.6);
+  font-weight: 300;
+  font-size: 20px;
+  padding-right: 15px;
+}
+
+.review-show {
+  border-right: 1px solid rgba(0,0,0,0.2);
+  padding-right: 10px;
+  margin-left: 10px
+}
+
+.review-show h3 {
+  color: $super-green;
+  font-weight: 300;
+}
+
+.review-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.the-inner-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 5px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: -3px;
+}
+
+.review-contain {
+  background-color: rgba(250,250,250,0.9);
+  z-index: -1;
+  padding: 10px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  font-weight: 300;
+  border: 1px solid #c9c9c9;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.review-message {
+  padding: 10px 5px;
+  font-style: italic;
+  color: rgba(0,0,0,0.4);
+}
+
+.photo-and-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: green
+}
+
+.review-photo {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  margin-right: 10px;
+}
+
+.checkout-show h3 {
+  font-weight: 300;
+  color: $super-green;
+}
+
+.checkout-contain {
+  background-color: rgba(250,250,250,0.9);
+  z-index: -1;
+  padding: 20px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  font-weight: 300;
+  border: 1px solid #c9c9c9;
+}
+
+.price-per-pouch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+.leprix {
+  font-weight: 500;
+  color: orange;
+}
+
+.quantity-to-buy {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  border-bottom: 1px dashed rgba(0,0,0,0.1);
+}
+
+.total-price-to-pay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  padding-bottom: 5px;
+  font-size: 22px;
+}
+
+.grand-total {
+  color: black;
+  font-weight: 500;
+}
+
+.container-checkout {
+  background-color: white;
+  border-radius: 3px;
+  padding: 10px;
+  padding-bottom: 0px;
+  margin-bottom: 20px;
+  padding-top: 15px;
+  border: 1px solid #c9c9c9;
+}
+
+.price-and-dollar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: $super-green;
+  font-weight: 700;
+}
+
+#checkout-form {
+  text-align: center;
 }
 
 
