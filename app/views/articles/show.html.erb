@@ -1,63 +1,110 @@
 <div class="container">
   <div class="article-box">
     <div class="card-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @article.photo, height: 300, width: 400, crop: :fill %>')">
-      <div class="card-show-title"><%= @article.title%></div>
+      <div class="card-show-title"><%= @article.title%>
+      </div>
       <!-- <img class="card-user-show" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
       <%= image_tag current_user.url_avatar || "https://api.adorable.io/avatars/#{Random.rand(250)}/", class: 'card-user-show' %>
     </div>
     <div class="inside-card">
-      <div class="price">
-       <h3>Description</h3>
-       <div><%= @article.price.to_i %> $</div>
-      </div>
-      <hr>
-      <div class="">
-        <%= @article.description %>
-       </div>
-        <hr>
-        <% if @article.user == current_user %>
-          <%= link_to 'Delete article', article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
-        <% end %>
-
-        <% if @article.user == current_user %>
-          <%= link_to "Edit this article?", edit_article_path(@article), class: 'btn btn-warning' %>
-        <% end %>
-      <div class="form-group">
-        <% unless @article.user == current_user %>
-        <%= simple_form_for([@article, @order]) do |a| %>
-          <div class="formassss">
-          <div class="drop">
-            <%= a.input :quantity, :collection => (1..10).to_a %>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="description-show">
+            <h3>Description</h3>
+            <p><%= @article.description %></p>
           </div>
-          <%= a.button :submit, class: 'btn btn-success' %>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="review-show">
+            <h3>Reviews</h3>
+            <% if @article.reviews.first.nil? %>
+              <%= "No reviews yet" %>
+            <% else %>
+              <ul class="review-list">
+                <% @article.reviews.each do |review| %>
+                  <div class="review-contain">
+                    <div class="the-inner-container">
+                      <div class="photo-and-name">
+                        <p><%= image_tag review.order.user.url_avatar, class: "review-photo" %></p>
+                        <p><%= review.order.user.first_name %></p>
+                      </div>
+                      <p class="rating"><% review.rating.times do %>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                        <% end %>
+                      </p>
+                      </div>
+                    <li class="review-message"><%= review.description.capitalize %></li>
+                  </div>
+                <% end %>
+              </ul>
+            <% end %>
           </div>
-        <% end %>
-        <% end %>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="checkout-show">
+            <h3>Checkout</h3>
+            <div class="form-group" id="checkout-form">
+              <div class="checkout-contain">
+                <div class="container-checkout">
+                  <div class="price-per-pouch">
+                    <p>Price / pouch:</p>
+                    <p class="leprix">$ <%= @article.price.to_i %></p>
+                  </div>
+                  <div class="quantity-to-buy">
+                    <p>Nº of pouches:</p>
+                    <% unless @article.user == current_user %>
+                    <%= simple_form_for([@article, @order]) do |a| %>
+                      <%= a.input :quantity, :collection => (1..10).to_a %>
+                  </div>
+                  <div class="total-price-to-pay">
+                    <p class="grand-total">Total:</p>
+                    <div class="price-and-dollar">
+                      <p>$</p>
+                      <p class="total_price">0</p>
+                    </div>
+                  </div>
+                </div>
+                  <%= a.button :submit, value="Order my weed!", class: 'btn btn-success'%>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="reviews">
-    <h3 id="reviews-header">Browse Reviews</h3>
-    <% if @article.reviews.first.nil? %>
-      <%= "No reviews yet" %>
-    <% else %>
-      <ul>
-        <% @article.reviews.each do |review| %>
-          <div class="list-inline reviews-content">
-            <p><%= review.order.user.first_name %></p>
-            <p class="rating"><% review.rating.times do %>
-                <i class="fa fa-star" aria-hidden="true"></i>
-              <% end %>
-            </p>
-            <li><%= review.description.capitalize %></li>
-          </div>
-        <% end %>
-      </ul>
-    <% end %>
+  <div class="">
+    </div>
+      <% if @article.user == current_user %>
+        <%= link_to 'Delete article', article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+        <%= link_to "Edit this article?", edit_article_path(@article), class: 'btn btn-warning' %>
+      <% end %>
+    </div>
   </div>
+
 </div>
 
 
-<!-- [[1, 1], [2, 2]] -->
 
+<script>
+    document.getElementById('order_quantity').addEventListener('change' , (event) => {
+      console.log(
+      (document.querySelector('.leprix').innerText.split(' ')[1]*1)*
+      (document.getElementById('order_quantity').value*1));
+
+      document.querySelector('.total_price').innerText = (document.querySelector('.leprix').innerText.split(' ')[1]*1)*
+      (document.getElementById('order_quantity').value*1);
+     });
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+  $(document).ready(function(){
+    $(".control-label").hide();
+  });
+</script>
