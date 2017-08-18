@@ -1,15 +1,27 @@
 class ArticlesController < ApplicationController
   def index
     word_search = params[:q]
-    if word_search.nil?
+    if word_search == ""
+
       @articles = Article.all
     else
-      @articles = Article.where("title LIKE ?", "%#{word_search}%")
+      # @articles = Article.where("title LIKE ?", "%#{word_search}%")
+      @articles = Article.near("%#{word_search}%", 0.4)
     end
+
+
+    # Flat.near('Tour Eiffel', 10)
     @hash = Gmaps4rails.build_markers(@articles) do |article, marker|
       marker.lat article.latitude
       marker.lng article.longitude
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
+
+    if Geocoder.search(params[:q]) == []
+      @position_depart = {lat: nil, lng: nil}
+    else
+      @position_depart = {lat: Geocoder.search(params[:q])[0].geometry["location"]["lat"],
+                      lng: Geocoder.search(params[:q])[0].geometry["location"]["lng"]}
     end
   end
 
