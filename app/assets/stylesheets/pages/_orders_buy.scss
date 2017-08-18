@@ -1,10 +1,11 @@
 .orders-details {
+    position: relative;
     margin-top: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: $light-gray;
-    padding: 29px;
+    padding: 15px 50px;
     border-radius: 4px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     border-color: 1px solid rgba(0,0,0,0.4)
@@ -100,4 +101,29 @@
   font-style: italic;
   padding-right: 15px;
   font-size: 30px
+}
+
+.container-checkout-order-buy {
+  background-color: white;
+  border-radius: 3px;
+  padding: 10px;
+  padding-bottom: 0px;
+  padding-top: 15px;
+  border: 1px solid #c9c9c9;
+  width: 600px;
+}
+
+#order_quantity_yalla {
+  color: orange;
+}
+
+.reviewed-yalla {
+  font-size: 30px;
+}
+
+.order-infos-yalla {
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  opacity: 0.7
 }
