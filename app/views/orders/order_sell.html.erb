@@ -1,18 +1,30 @@
-<h1>Liste de mes ventes</h1>
+<div class="container text-center">
+  <div class="orders-header">
+    <h1>List of sales</h1>
+  </div>
+</div>
 
-<ul>
-  <% @orders.each do |order| %>
-  <li>
-    <%= order.quantity %>
-    <%= order.article.title %>
-    <%= order.confirmed %>
-    <%= order.delivered %>
-    <% if order.delivered == "pending" %>
-      <%= link_to "Confirmed", orders_sell_confirmed_path(order.id), method: :patch %>
-    <% end %>
-    <% if order.confirmed == "pending" %>
-      <%= link_to "Cancel", orders_sell_cancel_path(order.id), method: :put %>
-    <% end %>
-  </li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="orders-content">
+    <ul>
+      <% @orders.each do |order| %>
+      <li class="list-inline">
+        <div class="orders-details">
+          <div class="order-infos">
+            <%= order.quantity %>
+            <%= order.article.title %> to <%= order.user.first_name.capitalize %>
+            <%= order.confirmed %>
+            <%= order.delivered %>
+            <% if order.delivered == "pending" %>
+              <%= link_to "Confirmed", orders_sell_confirmed_path(order.id), method: :patch %>
+            <% end %>
+            <% if order.confirmed == "pending" %>
+              <%= link_to "Cancel", orders_sell_cancel_path(order.id), method: :put %>
+            <% end %>
+          </div>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
