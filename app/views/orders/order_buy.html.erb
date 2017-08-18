@@ -21,15 +21,14 @@
 
           <div class="orders-details">
             <div id="checkout-form">
-              <div class="checkout-contain">
-                <div class="container-checkout">
+                <div class="container-checkout-order-buy">
                   <div class="price-per-pouch">
                     <p>Price / pouch:</p>
                     <p class="leprix">$ <%= order.article.price.to_i %></p>
                   </div>
                   <div class="quantity-to-buy">
-                    <p>Nº of pouches:</p>
-                    <p id="order_quantity"> <%= order.quantity %></p>
+                    <p>Nº of pouches bought and to be delivered:</p>
+                    <p id="order_quantity-yalla"> <%= order.quantity %></p>
                   </div>
                   <div class="total-price-to-pay">
                     <p class="grand-total">Total:</p>
@@ -38,20 +37,22 @@
                       <p class="total_price"><%= order.article.price.to_i * order.quantity%></p>
                     </div>
                   </div>
-                </div>
               </div>
           </div>
-            <div class="order-infos">
-              <%= order.quantity %>
-              <%= order.article.title %>
-              <%= order.delivered %>
+            <div class="order-infos-yalla">
+              "<%= order.article.title %>"
+              <% if order.delivered == "pending" %>
+              <span id="pending"><%= order.delivered %></span>
+                <% else %>
+              <span id="delivered"><%= order.delivered %></span>
+              <% end %>
             </div>
             <% if order.delivered == "delivered" %>
               <div class="order-review">
                 <% if order.reviews.first.nil? %>
                   <%= link_to "Review this order", new_order_review_path(order, @review), class: 'btn btn-warning' %>
                 <% else %>
-                  <%= "Already reviewed" %> <i class="fa fa-check-circle" aria-hidden="true"></i>
+                  <div class="reviewed-yalla" ><%= "Already reviewed" %> <i class="fa fa-check-circle" aria-hidden="true"></i></div>
                 <% end %>
               </div>
             <% end %>
