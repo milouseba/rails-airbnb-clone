@@ -44,15 +44,17 @@
             <div class="order-infos">
               <%= order.quantity %>
               <%= order.article.title %>
-              <%= order.confirmed %>
+              <%= order.delivered %>
             </div>
-            <div class="order-review">
-              <% if order.reviews.first.nil? %>
-                <%= link_to "Review this order", new_order_review_path(order, @review), class: 'btn btn-warning' %>
-              <% else %>
-                <%= "Already reviewed" %> <i class="fa fa-check-circle" aria-hidden="true"></i>
-              <% end %>
-            </div>
+            <% if order.delivered == "confirmed" %>
+              <div class="order-review">
+                <% if order.reviews.first.nil? %>
+                  <%= link_to "Review this order", new_order_review_path(order, @review), class: 'btn btn-warning' %>
+                <% else %>
+                  <%= "Already reviewed" %> <i class="fa fa-check-circle" aria-hidden="true"></i>
+                <% end %>
+              </div>
+            <% end %>
           </div>
         </li>
       <% end %>
