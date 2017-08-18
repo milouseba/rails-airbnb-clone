@@ -42,6 +42,7 @@
     <div id="map"></div>
     <% content_for(:after_js) do %>
       <%= javascript_tag do %>
+      console.log('toto');
     $(document).ready(function() {
       var handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'map' } }, function() {
@@ -103,16 +104,10 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 </script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 <!-- Gmaps JavaScript -->
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAP_KEY"]%>&callback=initMap">
-
-  </script>
-
-
 
 
 
@@ -129,7 +124,7 @@ let htmlArray =[];
       htmlStart["description"] = card.querySelector(".card-link").innerText;
       htmlArray.push(htmlStart);
   });
-  console.log(htmlArray);
+
   document.getElementById('filter_box').addEventListener('keyup', (event) => {
 
     document.querySelectorAll('.card').forEach(card => {
@@ -155,9 +150,7 @@ let htmlArray =[];
           </div>
         </div>`
 
-
       document.getElementById("da-search").insertAdjacentHTML('afterend', item);
-
     }
     });
   });
