@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-xs-12" id="da-search">
         <div class="search_plus_add">
-          <input type="text" class="form-control" placeholder="Filter. . .">
+          <input type="text" class="form-control" placeholder="Filter. . ." id="filter_box">
         </div>
         </br>
         <p> *Prices / pouch</p>
@@ -78,8 +78,8 @@
               }
 
             } else {
-              markers = handler.addMarkers(<%= raw @hash.to_json %>);
-
+              // markers = handler.addMarkers(<%= raw @hash.to_json %>);
+               handler.getMap().setCenter(<%= raw @position_depart.to_json %>);
 
             // console.log(<%= raw @position_depart.to_json %>);
             }
