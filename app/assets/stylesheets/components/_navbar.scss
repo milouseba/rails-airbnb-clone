@@ -39,6 +39,8 @@
 
       }
 
+
+
       20% {
 
         color: $super-green;
@@ -157,3 +159,19 @@
   margin-right: 10px;
 }
 
+#add_button-facebook {
+  background-color: #3B5998;
+  border-color: #3B5998;
+  padding: 5px;
+
+
+  &:hover {
+    background-color: #4064ad;
+    border-color: #4064ad;
+  }
+}
+
+#add_button-facebook a {
+  color: white;
+  font-size: 16px
+}
