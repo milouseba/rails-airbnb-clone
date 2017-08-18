@@ -13,3 +13,10 @@
   margin-right: 0;
   width: 100%;
 }
+
+.page-content {
+  position: relative;
+  z-index: 10;
+  // padding-bottom: 50px;
+  min-height: calc(100vh - 70px);
+}
