@@ -41,78 +41,116 @@
   <div class="map-content">
     <div id="map"></div>
     <% content_for(:after_js) do %>
-      <%= javascript_tag do %>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
-    });
-  <% end %>
-<% end %>
+      <script>
+
+        $(document).ready(function() {
+
+          var handler = Gmaps.build('Google');
+          handler.buildMap({ internal: { id: 'map' } }, function() {
+            markers = handler.addMarkers(<%= raw @hash.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            handler.icon() = "e";
+            // if (markers.length == 0) {
+            //   handler.getMap().setZoom(14);
+            // } else if (markers.length == 1) {
+            //   handler.getMap().setZoom(14);
+            // }
+
+
+            handler.getMap().setZoom(16);
+            // pos = {lat: 52.5206, lng: 13.4098};
+            // handler.getMap().setCenter(pos);
+            // console.log((<%= raw @position_depart.to_json %>)["lat"]);
+            if ((<%= raw @position_depart.to_json %>)["lat"] === null){
+              infoWindow = handler.getMap().InfoWindow;
+
+              if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                  var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                  };
+                  handler.getMap().setCenter(pos);
+                }, function() {
+                  // handleLocationError(true, infoWindow, map.getCenter());
+                });
+              } else
+              {
+                // Browser doesn't support Geolocation
+                // handleLocationError(false, infoWindow, map.getCenter());
+              }
+
+            } else {
+              markers = handler.addMarkers(<%= raw @hash.to_json %>);
+
+
+            // console.log(<%= raw @position_depart.to_json %>);
+            }
+
+
+
+
+
+
+          });
+
+
+
+        });
+      </script>
+    <% end %>
   </div>
 </div>
 
 
 <script>
-function initMap() {
-  // Create a map object and specify the DOM element for display.
-  let map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 52.5206, lng: 13.4098},
-    scrollwheel: false,
-    zoom: 15
-  });
+// function initMap() {
+//   // Create a map object and specify the DOM element for display.
+//   let map = new google.maps.Map(document.getElementById('map'), {
+//     center: {lat: 52.5206, lng: 13.4098},
+//     scrollwheel: false,
+//     zoom: 15
+//   });
 
-  infoWindow = new google.maps.InfoWindow;
+//   infoWindow = new google.maps.InfoWindow;
 
-  if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
+//   if (navigator.geolocation) {
+//           navigator.geolocation.getCurrentPosition(function(position) {
+//             var pos = {
+//               lat: position.coords.latitude,
+//               lng: position.coords.longitude
+//             };
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            infoWindow.open(map);
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-}
+//             infoWindow.setPosition(pos);
+//             infoWindow.setContent('Location found.');
+//             infoWindow.open(map);
+//             map.setCenter(pos);
+//           }, function() {
+//             handleLocationError(true, infoWindow, map.getCenter());
+//           });
+//         } else
+//         {
+//           // Browser doesn't support Geolocation
+//           handleLocationError(false, infoWindow, map.getCenter());
+//         }
+// }
 
 
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
-  infoWindow.open(map);
-}
+// function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+//   infoWindow.setPosition(pos);
+//   infoWindow.setContent(browserHasGeolocation ?
+//                         'Error: The Geolocation service failed.' :
+//                         'Error: Your browser doesn\'t support geolocation.');
+//   infoWindow.open(map);
+// }
 
 </script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 <!-- Gmaps JavaScript -->
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAP_KEY"]%>&callback=initMap">
-
-  </script>
-
-
 
 
 
@@ -129,7 +167,7 @@ let htmlArray =[];
       htmlStart["description"] = card.querySelector(".card-link").innerText;
       htmlArray.push(htmlStart);
   });
-  console.log(htmlArray);
+
   document.getElementById('filter_box').addEventListener('keyup', (event) => {
 
     document.querySelectorAll('.card').forEach(card => {
@@ -155,9 +193,7 @@ let htmlArray =[];
           </div>
         </div>`
 
-
       document.getElementById("da-search").insertAdjacentHTML('afterend', item);
-
     }
     });
   });
