@@ -21,7 +21,6 @@ class OrdersController < ApplicationController
   end
 
   def orders_sell_confirmed
-    # raise
     @order = Order.find(params[:id])
     if @order.confirmed = "confirmed"
       @order.delivered = "delivered"

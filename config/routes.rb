@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   patch "/orderssell/:id", to: "orders#orders_sell_confirmed" , as: "orders_sell_confirmed"
 
+  put "/orderssell/:id", to: "orders#orders_sell_cancel" , as: "orders_sell_cancel"
+
   get "/ordersbuy", to: "orders#order_buy", as: "orders_buy"
 
 

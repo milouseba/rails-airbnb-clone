@@ -11,7 +11,7 @@
       <%= link_to "Confirmed", orders_sell_confirmed_path(order.id), method: :patch %>
     <% end %>
     <% if order.confirmed == "pending" %>
-      <%= link_to "Cancel", orders_sell_cancel_path(order.id), method: :patch %>
+      <%= link_to "Cancel", orders_sell_cancel_path(order.id), method: :put %>
     <% end %>
   </li>
   <% end %>
