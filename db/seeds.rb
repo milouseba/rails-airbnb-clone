@@ -97,7 +97,7 @@ url29 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1503053522/Weed_35_q5
 url30 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1503053537/Weed_36_ndlgkd.jpg"
 url31 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1503053523/Weed_37_gswbv7.jpg"
 
-array_url = [url1, url2, url3, url4, url5, url6, url7, url8, url9, url10, url11, url12, url13, url14, url15, url16]
+array_url = [url1, url2, url3, url4, url5, url6, url7, url8, url9, url10, url11, url12, url13, url14, url15, url16, url17, url18, url19, url20, url21, url22, url23, url24, url25, url26, url27, url28, url29, url30, url31]
 
 article_weeds = [
 {title: "Haze", description: "La Haze est une variété de sativa qui a grandi à Santa Cruz, en Californie."},
