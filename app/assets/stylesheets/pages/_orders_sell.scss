@@ -68,3 +68,15 @@
   font-style: italic;
   font-size: 30px;
 }
+
+#pending {
+  color: orange;
+}
+
+#delivered {
+  color: $super-green;
+}
+
+#cancel {
+  color: $red;
+}
