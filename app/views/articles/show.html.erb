@@ -4,7 +4,7 @@
       <div class="card-show-title"><%= @article.title%>
       </div>
       <!-- <img class="card-user-show" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
-      <%= image_tag current_user.url_avatar || "https://api.adorable.io/avatars/#{Random.rand(250)}/", class: 'card-user-show' %>
+      <%= image_tag @article.user.url_avatar || "https://api.adorable.io/avatars/#{Random.rand(250)}/", class: 'card-user-show' %>
     </div>
     <div class="inside-card">
       <div class="row">
@@ -42,6 +42,7 @@
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="checkout-show">
+            <% unless @article.user == current_user %>
             <h3>Checkout</h3>
             <div class="form-group" id="checkout-form">
               <div class="checkout-contain">
@@ -52,7 +53,6 @@
                   </div>
                   <div class="quantity-to-buy">
                     <p>Nº of pouches:</p>
-                    <% unless @article.user == current_user %>
                     <%= simple_form_for([@article, @order]) do |a| %>
                       <%= a.input :quantity, :collection => (1..10).to_a %>
                   </div>
@@ -66,8 +66,29 @@
                 </div>
                   <%= a.button :submit, value="Order my weed!", class: 'btn btn-success'%>
                   <% end %>
+                  <% else %>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                      <div class="summary-show">
+                        <h3>Summary</h3>
+                            <div class="leprix-2">
+                                Price: <div class="fuck">$ <%= @article.price.to_i %></div>
+                            </div>
+                          <div class="summary-show-2">
+                            <div class="delete_edit">
+                              <div class="Edit"><%= link_to "Edit", edit_article_path(@article), class: 'btn btn-warning' %> </div>
+                              <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
                 <% end %>
               </div>
+  <div class="">
+    </div>
+    </div>
+  </div>
+
+</div>
             </div>
           </div>
         </div>
@@ -76,16 +97,6 @@
   </div>
 </div>
 
-  <div class="">
-    </div>
-      <% if @article.user == current_user %>
-        <%= link_to 'Delete article', article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
-        <%= link_to "Edit this article?", edit_article_path(@article), class: 'btn btn-warning' %>
-      <% end %>
-    </div>
-  </div>
-
-</div>
 
 
 
