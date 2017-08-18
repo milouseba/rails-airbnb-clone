@@ -130,8 +130,6 @@ p.rating {
 }
 
 .description-show {
-  border-right: 1px solid rgba(0,0,0,0.2);
-  margin-right: -10px;
 }
 
 .description-show h3 {
@@ -143,13 +141,11 @@ p.rating {
   color: rgba(0,0,0,0.6);
   font-weight: 300;
   font-size: 20px;
-  padding-right: 15px;
 }
 
 .review-show {
-  border-right: 1px solid rgba(0,0,0,0.2);
-  padding-right: 10px;
-  margin-left: 10px
+  border-left: 1px solid rgba(0,0,0,0.2);
+  padding-left: 30px;
 }
 
 .review-show h3 {
@@ -203,6 +199,11 @@ p.rating {
   border-radius: 50%;
   box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
   margin-right: 10px;
+}
+
+.checkout-show {
+  border-left: 1px solid rgba(0,0,0,0.2);
+  padding-left: 30px;
 }
 
 .checkout-show h3 {
