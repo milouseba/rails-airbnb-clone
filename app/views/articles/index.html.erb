@@ -164,6 +164,7 @@ let htmlArray =[];
       htmlArray.push(htmlStart);
   });
 
+
   document.getElementById('filter_box').addEventListener('keyup', (event) => {
 
     document.querySelectorAll('.card').forEach(card => {
@@ -183,7 +184,7 @@ let htmlArray =[];
               <h1>${card["price"]}</h1>
               </div>
 
-              <img class="card-user" src="https://randomuser.me/api/portraits/women/45.jpg" alt="45">
+              <img class="card-user" src="${card["avatar"]}" alt="45">
 
               <a class="card-link" href="${card["link"]}">${card["description"]}</a>
           </div>
