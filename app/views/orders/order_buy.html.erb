@@ -46,7 +46,7 @@
               <%= order.article.title %>
               <%= order.delivered %>
             </div>
-            <% if order.delivered == "confirmed" %>
+            <% if order.delivered == "delivered" %>
               <div class="order-review">
                 <% if order.reviews.first.nil? %>
                   <%= link_to "Review this order", new_order_review_path(order, @review), class: 'btn btn-warning' %>

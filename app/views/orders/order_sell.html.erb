@@ -20,13 +20,18 @@
             <div class="order-infos">
               <%= order.quantity %>
               <%= order.article.title %> to <%= order.user.first_name.capitalize %>
-              <%= order.confirmed %>
-              <%= order.delivered %>
               <% if order.delivered == "pending" %>
-                <%= link_to "Confirm", orders_sell_confirmed_path(order.id), method: :patch %>
+              <p id="pending"><%= order.delivered %></p>
+              <% elsif order.delivered == "cancel"%>
+              <p id="cancel"><%= order.delivered %></p>
+              <% else %>
+              <p id="delivered"><%= order.delivered %></p>
+              <% end %>
+              <% if order.delivered == "pending" %>
+                <%= link_to "Confirm", orders_sell_confirmed_path(order.id), method: :patch, class: "btn btn-success" %>
               <% end %>
               <% if order.confirmed == "pending" %>
-                <%= link_to "Cancel", orders_sell_cancel_path(order.id), method: :put %>
+                <%= link_to "Cancel", orders_sell_cancel_path(order.id), method: :put, class: "btn btn-danger" %>
               <% end %>
             </div>
           </div>
