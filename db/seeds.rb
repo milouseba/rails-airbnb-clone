@@ -81,6 +81,21 @@ url13 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1502875768/Herbnb/Wee
 url14 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1502875768/Herbnb/Weed_14.jpg"
 url15 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1502875769/Herbnb/Weed_15.jpg"
 url16 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1502875768/Herbnb/Weed_16.jpg"
+url17 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1503053247/Weed_23_i3nrbn.jpg"
+url18 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1503053246/Weed_24_bfqbhn.jpg"
+url19 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1503053246/Weed_25_z6kenv.jpg"
+url20 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1503053249/Weed_26_jkjohj.jpg"
+url21 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1503053248/Weed_27_wspcor.jpg"
+url22 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1503053248/Weed_28_npijbs.jpg"
+url23 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1503053249/Weed_29_jivpq3.jpg"
+url24 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1503053252/Weed_30_y3df8w.jpg"
+url25 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1503053249/Weed_31_nouze6.jpg"
+url26 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1503053571/Weed_32_tyhe9h.jpg"
+url27 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1503053546/Weed_33_ffgv9s.jpg"
+url28 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1503053529/Weed_34_c5onyz.jpg"
+url29 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1503053522/Weed_35_q5zk9q.jpg"
+url30 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1503053537/Weed_36_ndlgkd.jpg"
+url31 = "http://res.cloudinary.com/dd6ibmn7p/image/upload/v1503053523/Weed_37_gswbv7.jpg"
 
 array_url = [url1, url2, url3, url4, url5, url6, url7, url8, url9, url10, url11, url12, url13, url14, url15, url16]
 
