@@ -29,7 +29,7 @@
               <h1><%= article.price.to_i %>$</h1>
               </div>
 
-              <%= image_tag current_user.url_avatar || "https://api.adorable.io/avatars/#{Random.rand(250)}/", class: 'card-user' %>
+              <%= image_tag article.user.url_avatar || "https://api.adorable.io/avatars/#{Random.rand(250)}/", class: 'card-user' %>
 
               <%= link_to "#{article.description[0..54]} . . .", article_path(article), class: "card-link" %>
           </div>
